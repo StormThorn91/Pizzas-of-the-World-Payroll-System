@@ -3,5 +3,12 @@
     <head></head>
     <body>
         <h1>Hi <%= adminName %> </h1>
+        <h2>Hobbies</h2>
+        <ul>
+            <% data.hobbies.forEach((item) => { %>
+                <li><%= item %></li>
+           <%  }); %>
+        </ul>
+        <p></p>
     </body>
 </html>

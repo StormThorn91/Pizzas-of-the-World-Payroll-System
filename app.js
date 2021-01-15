@@ -11,7 +11,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/admin/:name', (req, res) => {
-    res.render('admin', {adminName: req.params.name});
+    var data = {hobbies: ['sleeping', 'singing', 'eating', 'dreaming']};
+    res.render('admin', {adminName: req.params.name, data: data});
 });
 
 app.listen(port,() => {
