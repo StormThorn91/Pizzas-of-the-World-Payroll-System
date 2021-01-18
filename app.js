@@ -1,6 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
 const port = 3000;
+
+var urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 var adminName = 'Caitlin';
 
@@ -17,6 +21,11 @@ app.get('/', (req, res) => {
 app.get('/sign-up', (req, res) => {
     console.log(req.query);
     res.render('sign-up', {qs: req.query});
+});
+
+app.post('/sign-up', urlencodedParser, (req, res) => {
+    console.log(req.body);
+    res.render('sign-up-success', {data: req.body});
 });
 
 app.get('/admin/:name', (req, res) => {
